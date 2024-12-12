@@ -1,11 +1,11 @@
 import ChartContainer from "./components/ChartContainer/ChartContainer"
-import "./Dashboard.css"
+import styles from "./Dashboard.module.css"
 
 function Dashboard() {
   
     return (
-      <div className="dashboard">
-        <div className="title">Solar Panel Dashboard</div>
+      <div className={styles.dashboard}>
+        <div className={styles.title}>Solar Panel Dashboard</div>
         <ChartContainer/>
       </div>
     )

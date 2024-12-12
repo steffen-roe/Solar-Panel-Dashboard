@@ -1,10 +1,11 @@
-import "./ChartContainer.css"
+import styles from "./ChartContainer.module.css"
+import InfoToolbar from "../InfoToolbar/InfoToolbar"
 
 function ChartContainer() {
   
     return (
-      <div className="chart-container">
-        
+      <div className={styles.chartContainer}>
+        <InfoToolbar/>
       </div>
     )
   }
