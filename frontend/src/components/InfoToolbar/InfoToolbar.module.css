@@ -1,0 +1,46 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    
+}
+
+.subtitle {
+    display: flex;
+    gap: .5em;
+}
+
+.subtext {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.refreshButton {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.refreshIcon {
+    display: inline-block;
+    transform: rotate(45deg);
+    color: #FF6F00;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    
+}
