@@ -66,7 +66,7 @@ function ChartRenderer({ range }) {
             ],
           },
           options: {
-            responsive: false,
+            responsive: true,
             maintainAspectRatio: false,
             plugins: {
               legend: {
@@ -138,7 +138,7 @@ function ChartRenderer({ range }) {
             ],
           },
           options: {
-            responsive: false,
+            responsive: true,
             maintainAspectRatio: false,
             plugins: {
               legend: {
@@ -185,13 +185,12 @@ function ChartRenderer({ range }) {
   }, [data, range]); // Re-run when data changes
 
   return (
-    <div>
+    <div className={styles.loadDiv}>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-
       {data ? (
-        <canvas ref={canvasRef} width="750px" height="425px"></canvas>
+        <canvas ref={canvasRef}></canvas>
       ) : (
-        <p>Loading...</p>
+        <div className={styles.loader}></div>
       )}
     </div>
   );
