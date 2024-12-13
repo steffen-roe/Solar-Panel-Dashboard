@@ -1,13 +1,13 @@
 import styles from "./ChartContainer.module.css"
 import InfoToolbar from "../InfoToolbar/InfoToolbar"
-import DataContainer from "../../DataContainer"
+import ChartRenderer from "../ChartRenderer/ChartRenderer"
 
 function ChartContainer() {
   
     return (
       <div className={styles.chartContainer}>
         <InfoToolbar/>
-        <DataContainer/>
+        <ChartRenderer/>
       </div>
     )
   }
