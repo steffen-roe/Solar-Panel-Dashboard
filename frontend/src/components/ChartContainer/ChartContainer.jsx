@@ -13,7 +13,7 @@ function ChartContainer() {
 
   return (
       <div className={styles.chartContainer}>
-        <InfoToolbar range={range} onRangeChange={handleRangeChange}/>
+        <InfoToolbar range={range} setRange={handleRangeChange}/>
         <ChartRenderer range={range}/>
       </div>
   )
