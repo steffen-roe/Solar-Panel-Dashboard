@@ -8,7 +8,11 @@ function InfoToolbar({ range, setRange }) {
     
     // Format the date to ddmmyyyy
     const formatDate = (date) => {
-        return date.toLocaleDateString("en-GB").replace(/\//g, "");
+        date = date.toLocaleDateString("en-GB").replace(/\//g, "");
+        const day = date.substring(0, 2);
+        const month = date.substring(2, 4);
+        const year = date.substring(4, 8);
+        return `${year}${month}${day}`;
     };
 
     // Handle manual date selection
@@ -16,8 +20,11 @@ function InfoToolbar({ range, setRange }) {
         const date = new Date(event.target.value);
         if (!isNaN(date)) {
             setSelectedDate(event.target.value);
-            setRange(formatDate(date));
-            // setType("line");
+            if (event.target.value === today) {
+                setRange("day");  // Set to "day" if today is selected
+            } else {
+                setRange(formatDate(date));
+            }
         }
     };
 
@@ -28,11 +35,14 @@ function InfoToolbar({ range, setRange }) {
     
         // Prevent future dates
         if (date <= new Date()) {
-          const newDateString = date.toISOString().split("T")[0];
-          setSelectedDate(newDateString);
-          setRange(formatDate(date));
-        //   setType("line");
-        }
+            const newDateString = date.toISOString().split("T")[0];
+            setSelectedDate(newDateString);
+            if (newDateString === today) {
+                setRange("day");  // Set to "day" if navigating to today
+            } else {
+                setRange(formatDate(date));
+            }
+        } 
     };
     
 
