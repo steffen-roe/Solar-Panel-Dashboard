@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'; 
 import apiClient from "./apiClient";
 
-export default function useApi(range) {
+export default function useApi(range, refreshKey) {
 
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
@@ -21,7 +21,7 @@ export default function useApi(range) {
 
     fetchData();
 
-  }, [range])
+  }, [range, refreshKey])
 
   return { data, error };
 
