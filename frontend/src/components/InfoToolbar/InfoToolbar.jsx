@@ -1,7 +1,8 @@
 import styles from "./InfoToolbar.module.css"
 import React, { useState } from 'react';
 
-function InfoToolbar({ range, setRange }) {
+
+function InfoToolbar({ range, setRange, onRefresh }) {
 
     const today = new Date().toISOString().split("T")[0];
     const [selectedDate, setSelectedDate] = useState(today);
@@ -52,7 +53,7 @@ function InfoToolbar({ range, setRange }) {
                 <div className={styles.title}>PV Output</div>
                 <div className={styles.subtitle}>
                     <div className={styles.subtext}>Update interval: 5 minutes </div>
-                    <button className={styles.refreshButton}>
+                    <button className={styles.refreshButton} onClick={onRefresh}>
                         <span className={styles.refreshIcon}>↻</span>
                     </button>
                 </div>

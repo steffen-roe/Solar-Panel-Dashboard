@@ -3,11 +3,11 @@ import Chart from 'chart.js/auto';
 import styles from "./ChartRenderer.module.css";
 import useApi from '../../api/useApi';
 
-function ChartRenderer({ range }) {
+function ChartRenderer({ range, refreshKey}) {
   const canvasRef = useRef(null);
   const chartRef = useRef(null);
   
-  const { data, error } = useApi(range); 
+  const { data, error } = useApi(range, refreshKey); 
   const [type, setType] = useState("line");
 
   useEffect(() => {
@@ -186,11 +186,12 @@ function ChartRenderer({ range }) {
 
   return (
     <div className={styles.loadDiv}>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
       {data ? (
         <canvas ref={canvasRef}></canvas>
       ) : (
-        <div className={styles.loader}></div>
+        <div className={styles.loader}>
+          {error && <p style={{color: 'red'}}>{error}</p>}
+        </div>
       )}
     </div>
   );
