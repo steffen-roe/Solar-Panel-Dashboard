@@ -1,28 +1,27 @@
-import { useState, useEffect } from 'react'; 
+import { useState, useEffect } from "react";
 import apiClient from "./apiClient";
 
 export default function useApi(range, refreshKey) {
-
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
     const fetchData = async () => {
+      setLoading(true);
       try {
-        const response = await apiClient.get('/dev/data', {
+        const response = await apiClient.get("/dev/data", {
           params: { range },
         });
-        setData(response.data); 
+        setData(response.data);
+        setLoading(false);
       } catch (err) {
-        setError("Failed to fetch")
+        setError("Failed to fetch");
       }
     };
 
     fetchData();
+  }, [range, refreshKey]);
 
-  }, [range, refreshKey])
-
-  return { data, error };
-
+  return { data, error, loading };
 }
