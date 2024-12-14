@@ -12,7 +12,6 @@ export const getLineChartConfig = (data) => ({
         fill: false,
         yAxisID: "y",
         pointRadius: 0,
-        borderWidth: 4,
       },
       {
         label: "Energy Generated (kWh)",
@@ -23,7 +22,6 @@ export const getLineChartConfig = (data) => ({
         fill: true,
         yAxisID: "y1",
         pointRadius: 0,
-        borderWidth: 4,
       },
     ],
   },
@@ -35,6 +33,7 @@ export const getLineChartConfig = (data) => ({
         labels: {
           color: "#ffffff",
           font: { size: 14 },
+          boxHeight: 0,
         },
         display: true,
         position: "bottom",
@@ -71,11 +70,7 @@ export const getBarChartConfig = (data) => ({
       {
         label: "Energy Generated (kWh)",
         data: data.map(({ max_energy }) => max_energy),
-        borderColor: "#007BFF",
-        backgroundColor: "rgba(0, 123, 255, 0.7)",
-        tension: 0,
-        fill: true,
-        pointRadius: 0,
+        backgroundColor: "rgba(0, 123, 255, 0.8)",
       },
     ],
   },
