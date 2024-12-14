@@ -30,7 +30,7 @@ function ChartRenderer({ range, refreshKey }) {
   }, [data, range]); // Re-run when data changes
 
   return (
-    <div className={styles.loadDiv}>
+    <div className={styles.mainContainer}>
       {data ? (
         <canvas ref={canvasRef}></canvas>
       ) : (
