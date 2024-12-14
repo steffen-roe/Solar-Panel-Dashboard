@@ -8,8 +8,7 @@ function ChartRenderer({ range, refreshKey }) {
   const canvasRef = useRef(null);
   const chartRef = useRef(null);
 
-  const { data, error } = useApi(range, refreshKey);
-  const [type, setType] = useState("line");
+  const { data, error, loading } = useApi(range, refreshKey);
 
   useEffect(() => {
     if (data && data.length > 0) {
@@ -27,16 +26,16 @@ function ChartRenderer({ range, refreshKey }) {
 
       chartRef.current = new Chart(canvas, chartConfig);
     }
-  }, [data, range]); // Re-run when data changes
+  }); // Re-run when data changes
 
   return (
     <div className={styles.mainContainer}>
-      {data ? (
-        <canvas ref={canvasRef}></canvas>
-      ) : (
+      {loading ? (
         <div className={styles.loader}>
           {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
+      ) : (
+        <canvas ref={canvasRef}></canvas>
       )}
     </div>
   );
