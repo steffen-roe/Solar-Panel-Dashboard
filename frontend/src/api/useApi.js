@@ -24,5 +24,5 @@ export default function useApi(range, refreshKey) {
     fetchData();
   }, [range, refreshKey]);
 
-  return { data, error };
+  return { data, error, loading };
 }
