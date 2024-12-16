@@ -5,7 +5,7 @@ It features a web application designed to monitor and visualize real-time and hi
 The initial plan was to extract solar panel data directly from our home installation. However, this proved challenging due to a missing gateway for data retrieval and the limitations of an outdated user application. As an alternative, I chose to scrape live data from the website https://pvoutput.org/, where users publicly share and compare their solar energy generation metrics.\
 The dashboard can be accessed via the following link: https://d322rvgbonf6n4.cloudfront.net/
 
-![Dashboard Preview](https://github.com/steffen-roe/Solar-Panel-Dashboard/blob/73c07c8a4037e869988c115752037bb996de3d0a/dashboard.png)
+![Dashboard Preview](https://github.com/steffen-roe/Solar-Panel-Dashboard/blob/9c71edacc8a6b7d082cd685fa3adf97574c642cb/dashboard.png)
 
 ## Features
 
