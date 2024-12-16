@@ -26,7 +26,7 @@ function ChartRenderer({ range, refreshKey }) {
 
       chartRef.current = new Chart(canvas, chartConfig);
     }
-  }); // Re-run when data changes
+  }, [data]); // Re-run when data changes
 
   return (
     <div className={styles.mainContainer}>
