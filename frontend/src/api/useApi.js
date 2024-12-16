@@ -14,14 +14,15 @@ export default function useApi(range, refreshKey) {
           params: { range },
         });
         setData(response.data);
-        setLoading(false);
       } catch (err) {
         setError("Failed to fetch");
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
   }, [range, refreshKey]);
 
-  return { data, error, loading };
+  return { data, error };
 }
